@@ -23,11 +23,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-//    @Override
-//    public MainActivity() {
-//        super();
-//    }
-
     @Override
     protected void onStart() {
         super.onStart();
