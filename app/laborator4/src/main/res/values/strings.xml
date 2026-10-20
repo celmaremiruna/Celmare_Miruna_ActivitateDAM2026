@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Laborator4</string>
+    <string name="exemplu_bmw_x5">Exemplu: BMW X5</string>
+    <string name="este_4x4">este 4x4?</string>
+    <string name="salveaza">Salveaza</string>
+    <string-array name="Motorizari">
+        <item>Benzina</item>
+        <item>Motorina</item>
+        <item>Electric</item>
+        <item>GPL</item>
+    </string-array>
+</resources>

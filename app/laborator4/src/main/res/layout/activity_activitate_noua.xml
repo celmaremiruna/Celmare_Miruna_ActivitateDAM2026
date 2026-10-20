@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivitateNoua">
+
+    <EditText
+        android:id="@+id/ET_nume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/exemplu_bmw_x5"/>
+
+    <CheckBox
+        android:id="@+id/CB_4x4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/este_4x4"/>
+
+    <Spinner
+        android:id="@+id/spinner_combustibil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/Motorizari"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/salveaza"
+        android:onClick="salveazaMasina"/>
+</LinearLayout>
