@@ -3,6 +3,7 @@ package ro.ase.dam.laborator4;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -13,8 +14,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> launcher;
+    private ArrayList<Masina> masini=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +30,26 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         launcher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 result -> {
                     if (result.getResultCode() == RESULT_OK && result.getData() != null) {
                         Masina masina = (Masina) result.getData().getSerializableExtra("masina");
                         if (masina != null) {
-                            Toast.makeText(this,
-                                    masina.model + ", 4x4: " + masina.este4x4 + ", " + masina.combustibil,
-                                    Toast.LENGTH_LONG).show();
+                            masini.add(masina);
                         }
                     }
                 });
+        Button butonActivitate3=findViewById(R.id.button);
+        butonActivitate3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Activitate3.class);
+                intent.putExtra("lista", masini);
+                startActivity(intent);
+            }
+        });
     }
 
     public void deschideActivitate(View view) {
