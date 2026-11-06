@@ -13,6 +13,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.io.Serializable;
+
 public class ActivitateNoua extends AppCompatActivity {
 
     private EditText etNume;
@@ -32,6 +34,23 @@ public class ActivitateNoua extends AppCompatActivity {
         etNume = findViewById(R.id.ET_nume);
         cb4x4 = findViewById(R.id.CB_4x4);
         spinnerCombustibil = findViewById(R.id.spinner_combustibil);
+        Intent it=getIntent();
+        if(it.hasExtra("masina")){
+            Masina m=it.getParcelableExtra("masina");
+            EditText numeEt=findViewById(R.id.ET_nume);
+            CheckBox combo4x4=findViewById(R.id.CB_4x4);
+            Spinner spinCombustibil=findViewById(R.id.spinner_combustibil);
+
+            numeEt.setText(m.getModel());
+            combo4x4.setChecked(m.isEste4x4());
+            String[] motorizari = getResources().getStringArray(R.array.Motorizari);
+            for (int i = 0; i < motorizari.length; i++) {
+                if (motorizari[i].equals(m.getCombustibil())) {
+                    spinCombustibil.setSelection(i);
+                    break;
+                }
+            }
+        }
     }
 
     public void salveazaMasina(View view) {
@@ -41,7 +60,7 @@ public class ActivitateNoua extends AppCompatActivity {
                 spinnerCombustibil.getSelectedItem().toString());
 
         Intent intent = new Intent();
-        intent.putExtra("masina", masina);
+        intent.putExtra("masina", (Serializable) masina);
         setResult(RESULT_OK, intent);
         finish();
     }
