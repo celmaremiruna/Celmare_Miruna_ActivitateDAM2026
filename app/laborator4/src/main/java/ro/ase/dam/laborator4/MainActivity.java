@@ -53,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button btnImagini=findViewById(R.id.butonImagini);
+        btnImagini.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), ActivitateImagini.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void deschideActivitate(View view) {

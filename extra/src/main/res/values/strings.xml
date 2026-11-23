@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">extra</string>
+    <string name="titlul_cartii">Titlul cartii</string>
+    <string name="autor">Autor</string>
+    <string name="tradusa_in_romana">Tradusa in romana</string>
+    <string name="salveaza">Salveaza</string>
+    <string name="carti">Carti</string>
+</resources>
